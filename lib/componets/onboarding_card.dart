@@ -7,15 +7,17 @@ class CardPlanetData {
   final Color? backgroundColor;
   final Color? titleColor;
   final Color? subtitleColor;
+  final Color? shadowColor;
   final Widget? background;
 
   CardPlanetData({
-    this.title,
-    this.subtitle,
-    this.image,
-    this.backgroundColor,
-    this.titleColor,
-    this.subtitleColor,
+    required this.title,
+    required this.subtitle,
+    required this.image,
+    required this.backgroundColor,
+    required this.titleColor,
+    required this.subtitleColor,
+    this.shadowColor,
     this.background,
   });
 }
@@ -47,6 +49,15 @@ class CardPlanet extends StatelessWidget {
               Text(
                 data.title!.toUpperCase(),
                 style: TextStyle(
+                  shadows: data.shadowColor != null
+                      ? [
+                          Shadow(
+                            color: data.shadowColor!,
+                            blurRadius: 5,
+                            offset: const Offset(0, 0),
+                          ),
+                        ]
+                      : null,
                   color: data.titleColor,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -62,7 +73,7 @@ class CardPlanet extends StatelessWidget {
                   fontSize: 16,
                 ),
                 textAlign: TextAlign.center,
-                maxLines: 5,
+                maxLines: 6,
               ),
               const Spacer(flex: 25),
             ],

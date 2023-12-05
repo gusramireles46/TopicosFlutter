@@ -8,33 +8,44 @@ class OnboardingPage extends StatelessWidget {
 
   final data = [
     CardPlanetData(
-      title: "Ori and the blind forest",
+      title: 'Ori and the blind forest',
       subtitle:
-          "Es un videojuego de plataforma aventura de un jugador con el estilo de Metroidvania diseñado por Moon Studios, "
-          "un desarrollador independiente, y publicado por Microsoft Studios.",
-      image: const AssetImage("assets/images/ori_1.png"),
-      backgroundColor: const Color.fromRGBO(0, 10, 56, 1),
-      titleColor: Colors.pink,
-      subtitleColor: Colors.white,
-      background: LottieBuilder.asset("assets/animations/lottie_1.json"),
+          'El bosque de Nibel perece. Tras una poderosa tormenta que desencadena una serie de devastadores acontecimientos, '
+          'Ori emprende una travesía para encontrar el valor y enfrentarse a una némesis oscura para salvar el bosque de Nibel. "Ori and the Blind Forest" '
+          'cuenta la historia de un joven huérfano destinado a realizar heroicas hazañas.',
+      image: const AssetImage('assets/images/ori_1.png'),
+      backgroundColor: const Color(0xFFC9EAFD),
+      titleColor: const Color(0xFFFFFFFF),
+      shadowColor: const Color(0xFFD1A130),
+      subtitleColor: const Color(0xFF000000),
+      background: LottieBuilder.asset('assets/animations/lottie_1.json',
+          fit: BoxFit.fill),
     ),
     CardPlanetData(
-      title: "Little Nightmares",
-      subtitle: "An endless number of galaxies means endless possibilities.",
-      image: const AssetImage("assets/images/little_nightmares.png"),
-      backgroundColor: Colors.white,
-      titleColor: Colors.purple,
-      subtitleColor: const Color.fromRGBO(0, 10, 56, 1),
-      background: LottieBuilder.asset("assets/animations/lottie_1.json"),
+      title: 'Little Nightmares',
+      subtitle:
+          'Ayuda a Six a escapar de Las Fauces, un enorme y misterioso navío habitado por almas corruptas en busca de su siguiente comida. '
+          'A medida que avanzas en tu aventura, explorarás una casita de muñecas espeluznante que actúa como prisión de la que tendrás que escapar y '
+          'un patio de juegos repleto de secretos por descubrir.',
+      image: const AssetImage('assets/images/little_nightmares.png'),
+      backgroundColor: const Color(0xFFEFC415),
+      titleColor: const Color(0xFF000000),
+      shadowColor: const Color(0xFF9B9758),
+      subtitleColor: const Color(0xFF423B2C),
+      background: LottieBuilder.asset('assets/animations/lottie_1.json',
+          fit: BoxFit.fill),
     ),
     CardPlanetData(
-      title: "stargaze",
-      subtitle: "The sky dome is a beautiful graveyard of stars.",
-      image: const AssetImage("assets/images/gris.png"),
-      backgroundColor: const Color.fromRGBO(71, 59, 117, 1),
-      titleColor: Colors.yellow,
-      subtitleColor: Colors.white,
-      background: LottieBuilder.asset("assets/animations/lottie_2.json"),
+      title: 'Gris',
+      subtitle:
+          'Gris es una muchacha llena de esperanzas y perdida en su propio mundo, enfrentada a una experiencia dolorosa de su vida. '
+          'Su viaje a través de la tristeza se manifiesta en su vestido, que le otorga nuevas habilidades para recorrer mejor su realidad difuminada.',
+      image: const AssetImage('assets/images/gris.png'),
+      backgroundColor: const Color(0xFF8D024A),
+      titleColor: const Color(0xFF87BFB4),
+      subtitleColor: const Color(0xFFEEF2CF),
+      background: LottieBuilder.asset('assets/animations/lottie_2.json',
+          fit: BoxFit.fill),
     ),
   ];
 
