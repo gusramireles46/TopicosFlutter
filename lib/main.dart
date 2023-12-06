@@ -8,6 +8,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:topicos2023/screens/fruits_screen.dart';
 import 'package:topicos2023/screens/onboarding_page.dart';
 import 'package:topicos2023/theme/darkTheme.dart';
+import 'package:topicos2023/theme/lightTheme.dart';
 
 void main() => runApp(const Topicos());
 
@@ -69,8 +70,8 @@ class Topicos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.dark,
       darkTheme: darkTheme,
+      theme: lightTheme,
       onGenerateRoute: (settings) => _getPageRoute(settings),
       initialRoute: '/',
     );

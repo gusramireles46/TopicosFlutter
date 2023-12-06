@@ -94,10 +94,14 @@ class _PopularScreenState extends State<PopularScreen> {
             const SizedBox(
               height: 10,
             ),
-            Text(
-              '${popularModel.title}',
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                '${popularModel.title}',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(
@@ -157,99 +161,103 @@ class _PopularScreenState extends State<PopularScreen> {
     showCupertinoDialog(
       context: context,
       builder: (BuildContext context) {
-        return CupertinoAlertDialog(
-          title: Text('${popularModel.title}'),
-          content: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  const Row(
-                    children: [
-                      Text(
-                        'Título original: ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Flexible(
-                        child: Text(
-                          '${popularModel.originalTitle}',
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 10,
+        return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+          child: CupertinoAlertDialog(
+            title: Text('${popularModel.title}', style: Theme.of(context).textTheme.headlineSmall,),
+            content: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    const Row(
+                      children: [
+                        Text(
+                          'Título original: ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const Row(
-                    children: [
-                      Text(
-                        'Descripción:',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            '${popularModel.originalTitle}',
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 10,
+                            textAlign: TextAlign.justify,
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '${popularModel.overview}',
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 10,
-                          textAlign: TextAlign.justify,
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      children: [
+                        Text(
+                          'Descripción:',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            '${popularModel.overview}',
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 10,
+                            textAlign: TextAlign.justify,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        'Popularidad: ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('${popularModel.popularity}')
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        'Fecha de lanzamiento: ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('${popularModel.releaseDate}')
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          'Popularidad: ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text('${popularModel.popularity}')
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          'Fecha de lanzamiento: ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text('${popularModel.releaseDate}')
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
+            actions: [
+              CupertinoDialogAction(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Aceptar',
+                  style: TextStyle(color: Colors.blueAccent),
+                ),
+              ),
+            ],
           ),
-          actions: [
-            CupertinoDialogAction(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text(
-                'Aceptar',
-                style: TextStyle(color: Colors.blueAccent),
-              ),
-            ),
-          ],
         );
       },
     );

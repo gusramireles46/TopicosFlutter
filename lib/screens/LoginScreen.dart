@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: const Color(0xFF222222),
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: const [
               BoxShadow(
@@ -39,13 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
           child: TextField(
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
-            style: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: Theme.of(context).textTheme.bodyMedium,
             decoration: const InputDecoration(
               labelText: 'Correo electrónico',
-              labelStyle: TextStyle(color: Colors.white54),
+              labelStyle: kHintTextStyle,
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
@@ -67,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: const Color(0xFF222222),
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: const [
               BoxShadow(
@@ -81,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: TextField(
             controller: _passwordController,
             obscureText: true,
-            style: kHintTextStyle,
+            style: Theme.of(context).textTheme.bodyMedium,
             decoration: const InputDecoration(
               labelText: 'Contraseña',
               labelStyle: kHintTextStyle,

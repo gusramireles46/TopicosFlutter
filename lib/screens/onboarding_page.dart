@@ -8,43 +8,63 @@ class OnboardingPage extends StatelessWidget {
 
   final data = [
     CardPlanetData(
-      title: 'Ori and the blind forest',
+      title: 'Tecnológico Nacional de México\nInstituto Tecnológico de Celaya',
       subtitle:
-          'El bosque de Nibel perece. Tras una poderosa tormenta que desencadena una serie de devastadores acontecimientos, '
-          'Ori emprende una travesía para encontrar el valor y enfrentarse a una némesis oscura para salvar el bosque de Nibel. "Ori and the Blind Forest" '
-          'cuenta la historia de un joven huérfano destinado a realizar heroicas hazañas.',
-      image: const AssetImage('assets/images/ori_1.png'),
-      backgroundColor: const Color(0xFFC9EAFD),
+          'El Tecnológico de Celaya ahora TecNM en Celaya, inicia actividades el 14 de abril de 1958 como un '
+          'Centro de Segunda Enseñanza y Capacitación Técnica para Trabajadores.'
+          'El TecNM en Celaya por sus indicadores académicos, se coloca en los primeros lugares nacionales.',
+      image: const AssetImage('assets/images/itcelaya_logo.png'),
+      backgroundColor: const Color(0xFFFFFFFF),
       titleColor: const Color(0xFFFFFFFF),
-      shadowColor: const Color(0xFFD1A130),
-      subtitleColor: const Color(0xFF000000),
+      shadowColor: const Color(0xFF1B396A),
+      subtitleColor: const Color(0xFF006522),
       background: LottieBuilder.asset('assets/animations/lottie_1.json',
           fit: BoxFit.fill),
     ),
     CardPlanetData(
-      title: 'Little Nightmares',
+      title: 'La mascota:\nLinces',
       subtitle:
-          'Ayuda a Six a escapar de Las Fauces, un enorme y misterioso navío habitado por almas corruptas en busca de su siguiente comida. '
-          'A medida que avanzas en tu aventura, explorarás una casita de muñecas espeluznante que actúa como prisión de la que tendrás que escapar y '
-          'un patio de juegos repleto de secretos por descubrir.',
-      image: const AssetImage('assets/images/little_nightmares.png'),
-      backgroundColor: const Color(0xFFEFC415),
-      titleColor: const Color(0xFF000000),
-      shadowColor: const Color(0xFF9B9758),
-      subtitleColor: const Color(0xFF423B2C),
+          'El logo fue creado en 1974, su autor fue el dibujante Carlos Lara Maldonado',
+      image: const AssetImage('assets/images/lince_logo.png'),
+      backgroundColor: const Color(0xFFEEEEEE),
+      titleColor: const Color(0xFFFFFFFF),
+      shadowColor: const Color(0xFF117533),
+      subtitleColor: const Color(0xFF1B396A),
       background: LottieBuilder.asset('assets/animations/lottie_1.json',
           fit: BoxFit.fill),
     ),
     CardPlanetData(
-      title: 'Gris',
+      title: 'Institución',
       subtitle:
-          'Gris es una muchacha llena de esperanzas y perdida en su propio mundo, enfrentada a una experiencia dolorosa de su vida. '
-          'Su viaje a través de la tristeza se manifiesta en su vestido, que le otorga nuevas habilidades para recorrer mejor su realidad difuminada.',
-      image: const AssetImage('assets/images/gris.png'),
-      backgroundColor: const Color(0xFF8D024A),
-      titleColor: const Color(0xFF87BFB4),
-      subtitleColor: const Color(0xFFEEF2CF),
+          'En materia de instalaciones físicas y equipamiento de laboratorios y talleres, '
+          'ha sido notable el paulatino avance hasta llegar a cubrir casi en su totalidad 20 hectáreas '
+          '(en sus dos campus)',
+      image: const AssetImage('assets/images/institucion.png'),
+      backgroundColor: const Color(0xFF1B396A),
+      titleColor: const Color(0xFFFFFFFF),
+      shadowColor: const Color(0xFF000000),
+      subtitleColor: const Color(0xFFFFFFFF),
       background: LottieBuilder.asset('assets/animations/lottie_2.json',
+          fit: BoxFit.fill),
+    ),
+    CardPlanetData(
+      title: 'Ingeniería en Sistemas Computacionales',
+      subtitle:
+          'Las y los egresados de Ingeniería en Sistemas Computacionales serán profesionistas, '
+          'analíticos, críticos, creativos, con liderazgo y con visión estratégica, amplio sentido ético, '
+          'capaz de diseñar, administrar e implementar infraestructura computacional para aportar soluciones '
+          'creativas e innovadoras en beneficio de la sociedad, en un contexto global, multidisciplinario y '
+          'sustentable.',
+      image: const AssetImage('assets/images/sistemas.png'),
+      backgroundColor: const Color(0xFF30377B),
+      /*backgroundGradient: const LinearGradient(
+          colors: [Color(0xFF4153B2), Color(0xFF221D44), Color(0xFF000000)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight),*/
+      titleColor: const Color(0xFFFFFFFF),
+      shadowColor: const Color(0xFF000000),
+      subtitleColor: const Color(0xFFFFFFFF),
+      background: LottieBuilder.asset('assets/animations/lottie_3.json',
           fit: BoxFit.fill),
     ),
   ];
@@ -53,7 +73,8 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ConcentricPageView(
-        colors: data.map((e) => e.backgroundColor!).toList(),
+        colors:
+            data.map((e) => e.backgroundColor ?? Colors.transparent).toList(),
         itemCount: data.length,
         itemBuilder: (index) {
           return CardPlanet(data: data[index]);

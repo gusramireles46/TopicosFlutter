@@ -83,11 +83,7 @@ class _CounterDesignState extends State<CounterDesign> {
         ),
         Text(
           '\$${_amt.toStringAsFixed(1)} MXN', // Muestra el valor con 2 decimales
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-          ),
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
       ],
     );

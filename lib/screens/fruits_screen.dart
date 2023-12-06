@@ -11,20 +11,27 @@ class FruitsScreen extends StatefulWidget {
   State<FruitsScreen> createState() => _FruitsScreenState();
 }
 
-class _FruitsScreenState extends State<FruitsScreen> {
+class _FruitsScreenState extends State<FruitsScreen> with SingleTickerProviderStateMixin{
   bool _isFavorited = true;
 
   Color colorFondo = const Color(0xFFDCF7EE);
   Color buttonColor = const Color(0xFF006A5C);
   Color buttonTextColor = const Color(0xFFD8F3F4);
   Color containerColor = const Color(0xFF1B1A1F);
+
   //Color containerColor = Theme.of(context).colorScheme.secondary;
-  Color textColor = Colors.white;
+  //Color textColor = Colors.white;
+  //Color textColor = Theme.of(context).textTheme.bodyText1,
 
   void _toggleFavorite() {
     setState(() {
       _isFavorited = !_isFavorited;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -58,22 +65,22 @@ class _FruitsScreenState extends State<FruitsScreen> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
-                      color: Color(0x55000000),
+                      color: Theme.of(context).shadowColor,
                       spreadRadius: 2,
                       blurRadius: 20,
-                      offset: Offset(0, 7),
+                      offset: const Offset(0, 10),
                     ),
                   ],
                   //color: containerColor,
                   color: Theme.of(context).colorScheme.background,
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
                   ),
                 ),
-                height: 568,
+                height: 544,
                 width: 500,
                 child: Align(
                   alignment: Alignment.bottomLeft,
@@ -87,16 +94,12 @@ class _FruitsScreenState extends State<FruitsScreen> {
                         ),
                         Text(
                           'Mango',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                          ),
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('Cada uno', style: TextStyle(color: textColor)),
+                        Text('Cada uno', style: Theme.of(context).textTheme.bodySmall),
                         const SizedBox(
                           height: 20,
                         ),
@@ -106,32 +109,27 @@ class _FruitsScreenState extends State<FruitsScreen> {
                         ),
                         Text(
                           'Descripción del producto',
-                          style: TextStyle(
-                              fontSize: 24.0, fontWeight: FontWeight.bold, color: textColor),
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                         const SizedBox(
-                          height: 5.0,
+                          height: 3,
                         ),
                         Text(
                           'Un mango es un tipo de fruta. '
-                              'El árbol de mango es originario del sur de Asia, desde donde se ha llevado a ser una de las frutas más cultivadas en los trópicos. '
-                              'Se cosecha en el mes de marzo (temporada de verano) hasta finales de mayo.',
-                          style: TextStyle(
-                            letterSpacing: 1.0,
-                            fontSize: 16.0,
-                            color: textColor,
-                          ),
+                          'El árbol de mango es originario del sur de Asia, desde donde se ha llevado a ser una de las frutas más cultivadas en los trópicos. '
+                          'Se cosecha en el mes de marzo (temporada de verano) hasta finales de mayo.',
+                          style: Theme.of(context).textTheme.bodyMedium,
                           textAlign: TextAlign.justify,
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 25,
                         ),
                         Row(
                           children: [
                             ButtonTheme(
                               minWidth: 200,
                               child: Material(
-                                color: containerColor,
+                                color: Theme.of(context).colorScheme.background,
                                 elevation: 10,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -141,7 +139,7 @@ class _FruitsScreenState extends State<FruitsScreen> {
                                 ),
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: containerColor,
+                                    backgroundColor: Theme.of(context).colorScheme.background,
                                     elevation: 0,
                                   ),
                                   onPressed: () {
@@ -153,13 +151,13 @@ class _FruitsScreenState extends State<FruitsScreen> {
                                     },
                                     icon: _isFavorited
                                         ? const Icon(
-                                      Icons.favorite_border,
-                                      color: Color(0xFFFF3355),
-                                    )
+                                            Icons.favorite_border,
+                                            color: Color(0xFFFF3355),
+                                          )
                                         : const Icon(
-                                      Icons.favorite,
-                                      color: Color(0xFFFF3355),
-                                    ),
+                                            Icons.favorite,
+                                            color: Color(0xFFFF3355),
+                                          ),
                                   ),
                                 ),
                               ),

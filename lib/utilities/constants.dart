@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 const kHintTextStyle = TextStyle(
-  color: Colors.white54,
-  fontFamily: 'OpenSans',
+  color: Colors.grey,
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
 );
 
 const kLabelStyle = TextStyle(
